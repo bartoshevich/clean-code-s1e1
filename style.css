@@ -57,7 +57,7 @@ button:hover {
     color: #3a3A3a;
 }
 /* Heading */
-h3,
+h2,
 label[for='new-task'] {
     color: #333;
     font-weight: 700;
@@ -145,4 +145,20 @@ ul li.editMode input[type=text] {
 
 ul li.editMode label {
     display:none;
+}
+
+/* visually-hidden */ 
+
+.element--hidden {
+    clip: rect(1px,1px,1px,1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    z-index: -1000;
+   -ms-user-select:none;
+   -webkit-user-select: none;
+   padding: 0px;
+   margin: 0px;
 }
