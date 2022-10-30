@@ -46,7 +46,7 @@
 .item__text {
   width: 56%;
   display: inline-block;
-  flex-grow: 1
+  flex-grow: 1;
 }
 
 .list {
@@ -140,7 +140,7 @@
   font-size: 18px;
   width: 226px;   
   display: inline-block;
-  flex-grow: 1
+  flex-grow: 1;
 }
 
 
