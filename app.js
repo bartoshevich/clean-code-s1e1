@@ -7,16 +7,13 @@
 
 
 // Event handling, user interaction is what starts the code execution.
-
 var taskInput=document.getElementById("new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
 var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
 var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 
-
 //New task list item
 var createNewTaskElement=function(taskString){
-
   var listItem=document.createElement("li");
   listItem.classList.add('list__item');  
   //input (checkbox)
@@ -45,16 +42,13 @@ var createNewTaskElement=function(taskString){
   deleteButtonImg.classList.add('button__img');
   deleteButtonImg.src='./remove.svg';
   deleteButton.appendChild(deleteButtonImg);
-  
-  
   //and appending.
   listItem.appendChild(checkBox);
   listItem.appendChild(label);
   listItem.appendChild(editInput);
   listItem.appendChild(editButton);
   listItem.appendChild(deleteButton);
-  return listItem;
-  
+  return listItem;  
 }
 
 var addTask=function(){
@@ -69,7 +63,6 @@ var addTask=function(){
 }
 
 //Edit an existing task.
-
 var editTask=function(){
   console.log("Edit Task...");
   console.log("Change 'edit' to 'save'");  
@@ -80,7 +73,6 @@ var editTask=function(){
   var containsClass=listItem.classList.contains("item_editMode");
   //If class of the parent is .editmode
   if(containsClass){
-
     //switch to .editmode
     //label becomes the inputs value.
     editInput.classList.remove('item__text_input_editMode');
@@ -93,11 +85,9 @@ var editTask=function(){
     editInput.classList.add('item__text_input_editMode');
     label.classList.add('item__label_editMode');
     }
-
     //toggle .editmode on the parent.
     listItem.classList.toggle("item_editMode");
 };
-
 
 //Delete task.
 var deleteTask=function(){
@@ -106,9 +96,7 @@ var deleteTask=function(){
   var ul=listItem.parentNode;
   //Remove the parent list item from the ul.
   ul.removeChild(listItem);
-
 }
-
 
 //Mark task completed
 var taskCompleted=function(){
@@ -120,7 +108,6 @@ var taskCompleted=function(){
   label.classList.add('item__label_completed');
   bindTaskEvents(listItem, taskIncomplete);
 }
-
 
 var taskIncomplete=function(){
   console.log("Incomplete Task...");
@@ -134,20 +121,15 @@ var taskIncomplete=function(){
   bindTaskEvents(listItem,taskCompleted);
 }
 
-
-
 var ajaxRequest=function(){
   console.log("AJAX Request");
 }
 
 //The glue to hold it all together.
-
-
 //Set the click handler to the addTask function.
 addButton.onclick=addTask;
 addButton.addEventListener("click",addTask);
 addButton.addEventListener("click",ajaxRequest);
-
 
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
   console.log("bind list item events");
@@ -166,13 +148,9 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 //cycle over incompleteTaskHolder ul list items
 //for each list item
 for (var i=0; i<incompleteTaskHolder.children.length;i++){
-
   //bind events to list items chldren(tasksCompleted)
   bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
 }
-
-
-
 
 //cycle over completedTasksHolder ul list items
 for (var i=0; i<completedTasksHolder.children.length;i++){
@@ -180,11 +158,6 @@ for (var i=0; i<completedTasksHolder.children.length;i++){
   bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
 
-
-
-
 // Issues with usability don't get seen until they are in front of a human tester.
-
 //prevent creation of empty tasks.
-
 //Change edit to save when you are in edit mode.
